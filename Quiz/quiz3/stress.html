@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Stress Quiz</title>
+</head>
+
+<body>
+    <div id="instructionsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Instructions</h2>
+            <p>Answer each question based on how you've felt in the past week. Click 'Next' to proceed to the next question. After answering all questions, click 'Submit' to see your results.</p>
+            
+        </div>
+    </div>
+    <div class="bg">
+        <div class="quiz-container">
+            
+            <form id="quiz-form">
+                <div class="question" id="q1">
+                    <div class="txt">
+                        <h1>1. How often have you felt overwhelmed by your responsibilities?</h1>
+                    </div>
+                    
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+        
+                <div class="question" id="q2">
+                    <h2>2. Have you had trouble sleeping due to worrying about things?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+
+                <div class="question" id="q3">
+                    <h2>3. How frequently have you felt irritable or easily angered?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+
+                <div class="question" id="q4">
+                    <h2>4. Have you experienced physical symptoms like headaches, muscle tension, or stomach problems?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+
+                <div class="question" id="q5">
+                    <h2>5. How often have you felt like you're losing control or that things are spiraling out of hand?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+
+                <div class="question" id="q6">
+                    <h2>6. Have you had difficulty concentrating or making decisions?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+
+                <div class="question" id="q7">
+                    <h2>7. How frequently have you felt nervous or anxious about the future?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+
+                <div class="question" id="q8">
+                    <h2>8. Have you found it hard to relax or unwind even when you have free time?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+
+                <div class="question" id="q9">
+                    <h2>9. How often have you felt overwhelmed by the pace of your life or by all that you need to do?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+
+                <div class="question" id="q10">
+                    <h2>10. Have you experienced changes in appetite, either eating more or less than usual?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+        
+                
+        
+                <button type="button" id="nextBtn">Next</button>
+                <button type="button" id="submitBtn" class="hidden">Submit</button>
+            </form>
+        
+            <div id="result-container" class="hidden">
+                <h2>QUIZ COMPLETED !!</h2>
+                <img src="../../img.gif" alt="">
+                <div class="sc" style="display: flex; justify-content: center;align-items: center;">
+                    <p id="score">Hello</p>
+                </div>
+                
+                <p id="inter">Hello</p>
+            </div>
+        </div>
+    </div>    
+    
+        <script src="index.js"></script>
+    </body>
+
+</html>

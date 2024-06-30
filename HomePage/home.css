@@ -1,0 +1,296 @@
+@font-face {
+    font-family: 'AlegrayaEX';
+    src: url('../Assets/Fonts/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'AlegrayaM';
+    src: url('../Assets/Fonts/Alegreya_Sans/AlegreyaSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'AlegrayaB';
+  src: url('../Assets/Fonts/Alegreya_Sans/AlegreyaSans-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'AL';
+    src: url(../Assets/Fonts/Alegreya_Sans/AlegreyaSans-Light.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar{
+    display: none;
+    height: 100vh;
+    width: 30%;
+    background-color: #41CFED;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.side{
+    width: 80%;
+    height: 70%;
+    
+}
+
+.sidebar .icon{
+    width: 100%;
+    height: 10%;
+    
+}
+
+
+.sidebar .icon img{
+    height: 60%;
+    width: 20%;
+    cursor: pointer;
+}
+.sidebar .info{
+    width: 100%;
+    height: 40%;
+    
+}
+
+.info .pic{
+    width: 100%;
+    height: 60%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info .pic img{
+    height: 90%;
+    width: 40%;
+    border-radius: 50%;
+    
+}
+
+.info .text{
+    width: 100%;
+    height: 40%;
+    
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.text .tt{
+    text-align: center;
+}
+
+.text h2{
+    color: white;
+    font-family: 'AlegrayaM',sans-serif ;
+    color: white;
+    font-size: 4vmin;
+}
+
+.text h4{
+    color: white;
+    font-family: 'AlegrayaM',sans-serif ;
+    color: white;
+    font-size: 2vmin;
+}
+
+.sidebar .buttonsss{
+    width: 100%;
+    height: 50%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonsss .btnss{
+    
+    height: 90%;
+    width: 60%;
+}
+
+.btnss button{
+    border: none;
+    background-color: #0092BB;
+    height: 20%;
+    width: 100%;
+    margin-bottom: 8%;
+    border-radius: 1.5vmin;
+    cursor: pointer;
+    font-family: 'AlegrayaB',sans-serif;
+    color: white;
+    font-size: 2.5vmin;
+
+}
+
+.btnss .out{
+    background-color: #FF4D6B;
+}
+
+.nav{
+    height: 10vh;
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav .left{
+    height: 100%;
+    width: 10%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav .left img{
+    height: 100%;
+    width: 60%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.nav .right{
+    height: 100%;
+    width: 55%;
+    
+    display: flex;
+}
+
+.nav .right .optt{
+    
+    height: 100%;
+    width: 85%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.right .optt .roptt{
+    
+    height: 100%;
+    width: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #371B34;
+    font-family: 'AlegrayaM',sans-serif;
+    font-size: 2.2vmin;
+    cursor: pointer;
+}
+
+.right .optt .roptt:hover{
+    text-decoration: underline;
+}
+
+.nav .right .btn{
+    
+    height: 100%;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right .btn button{
+    background-color: #FF4D6B;
+    height: 60%;
+    width: 90%;
+    border: none;
+    color: white;
+    font-family: 'AlegrayaB',sans-serif;
+    font-size: 2vmin;
+    border-radius: 2vmin;
+    cursor: pointer;
+}
+
+.right .btn button:hover{
+    background-color: #FA2044;
+}
+
+a{
+    text-decoration: none;
+}
+
+.roptt a{
+    color: #371B34;
+    font-family: 'AlegrayaM',sans-serif;
+    font-size: 2.2vmin;
+}
+
+.btn a{
+    color: white;
+    font-family: 'AlegrayaB',sans-serif;
+    font-size: 2vmin;
+}
+
+a:visited{
+    text-decoration: none;
+}
+
+
+/*************************************************************************************************************************************/
+
+.bgg{
+    background-image: url(../Pics/bg22.png);
+    background-size: cover;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+}
+
+.bgg .circle{
+    background-color: #41CFED;
+    height: 65%;
+    width: 35%;
+    border-radius: 50%;
+    margin-right: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+.circle .ctext{
+    text-align: center;
+}
+
+.circle .ctext h2{
+    font-family: 'AL',sans-serif;
+    color: white;
+    font-size: 5.5vmin;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.circle .ctext h2 span{
+    font-family: 'AlegrayaB',sans-serif;
+}
+
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    /* Add any additional styling for the arrow */
+}
+
+
+

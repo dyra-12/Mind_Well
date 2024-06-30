@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+@font-face {
+    font-family: 'AlegrayaEX';
+    src: url('../Assets/Fonts/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'AlegrayaM';
+    src: url('../Assets/Fonts/Alegreya_Sans/AlegreyaSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'AlegrayaB';
+  src: url('../Assets/Fonts/Alegreya_Sans/AlegreyaSans-Bold.ttf');
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'AlegrayaM', sans-serif;
+}
+body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.wrapper{
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  background: #fff;
+  padding: 34px;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  
+}
+.wrapper h2{
+  position: relative;
+  font-size: 35px;
+  font-weight: 600;
+  color: #333;
+  font-family: 'AlegrayaEX';
+}
+
+
+.wrapper h4{
+    position: relative;
+    font-size: 22px;
+    font-weight: 600;
+    color: #848080;
+    margin-top: 20px;
+
+  }
+
+.wrapper form{
+  margin-top: 30px;
+}
+.wrapper form .input-box{
+  height: 52px;
+  margin: 18px 0;
+}
+form .input-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding: 0 15px;
+  font-size: 17px;
+  font-weight: 400;
+  color: #5C6263;
+  border: none;
+  border-bottom-width: 2.5px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  background-color: #E5F4F8;
+}
+.input-box input:focus,
+.input-box input:valid{
+  border-color: #1A9DC2;
+}
+form .policy{
+  display: flex;
+  align-items: center;
+}
+form h3{
+  color: #707070;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.input-box.button{
+    width: 250px;
+    border-radius: 30px;
+    position: relative;
+    left: 20%;
+    background-color: #1A9DC2;
+
+}
+.input-box.button input{
+  color: #fff;
+  letter-spacing: 1px;
+  border: none;
+  background: #1A9DC2;
+  cursor: pointer;
+  font-family: 'AlegrayaB', sans-serif;
+}
+.input-box.button input:hover{
+  background: #1A9DC2;
+}
+
+.input-boxx button{
+  width: 250px;
+  border-radius: 30px;
+  position: relative;
+  left: 20%;
+  background-color: #1A9DC2;
+  color: #fff;
+  letter-spacing: 1px;
+  border: none;
+  background: #1A9DC2;
+  cursor: pointer;
+  font-family: 'AlegrayaB', sans-serif;
+  height: 50px;
+  font-size: 2vh;
+  margin-bottom: 40px;
+}
+form .text h3{
+ color: #333;
+ width: 100%;
+ text-align: center;
+}
+form .text h3 a{
+  color: #1A9DC2;
+  text-decoration: none;
+}
+form .text h3 a:hover{
+  text-decoration: underline;
+}
+
+.icons {
+  display: flex;
+    justify-content: center;
+    margin-top: 20px;;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; 
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 5px;
+  border: 1px solid #CCCCCC;
+}
+
+.icon img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%; 
+  cursor: pointer;
+}

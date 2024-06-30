@@ -1,0 +1,157 @@
+@font-face {
+    font-family: 'AEX';
+    src: url('../Assets/Fonts/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'AM';
+    src: url('../Assets/Fonts/Alegreya_Sans/AlegreyaSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'AlegrayaB';
+  src: url('../Assets/Fonts/Alegreya_Sans/AlegreyaSans-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'AMedium';
+    src: url(../Assets/Fonts/Alegreya_Sans/AlegreyaSans-Medium.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: white;
+}
+
+.bg{
+    background-image: url('../Pics/bg4.jpeg');
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+.side{
+    
+    height: 100%;
+    width: 45%;
+}
+.bg .button{
+    
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+
+.button img{
+    height: 40%;
+    margin-left: 5%;
+}
+
+.bg .text{
+    
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: flex-end;
+    
+}
+
+.tt{
+    height: 70%;
+    width: 100%;
+    
+}
+
+.text h1{
+    font-family: 'AEX',sans-serif;
+    color: #371B34;
+    font-size: 7vmin;
+    margin-left: 10%;
+    margin-bottom: 3%;
+}
+
+.text p{
+    font-family: 'AM',sans-serif;
+    color: #371B34;
+    font-size: 3vmin;
+    width: 60%;
+    margin-left: 10%;
+    margin-bottom: 3%;
+}
+
+.bg .calls{
+    
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calls .call{
+    height: 80%;
+    width: 80%;
+    
+}
+
+.call .btn{
+    width: 100%;
+    height: 20%;
+    margin-bottom: 3%;
+    background-color: white;
+    border: 1px #006E9B dashed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: 'AlegreyaSans-Medium',sans-serif;
+    color: #371B34;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 40px;
+    border: dashed black 2px;
+    width: 80%;
+    max-width: 300px;
+    position: relative;
+    font-family: 'AlegreyaSans-Medium',sans-serif;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

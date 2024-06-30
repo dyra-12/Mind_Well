@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Library</title>
+</head>
+<body>
+    <div class="body">
+        <div class="bg">
+            <div class="head">Library</div>
+            <div class="category">
+                <div class="text">Blogs recommended for you</div>
+                <div class="options">
+
+                    <div class="opt" style="background-image: url(../Pics/blogs/blog1.png); background-size: cover;">
+                        <div class="textt">
+                            <a href="https://nuawoman.com/blog/how-can-you-improve-your-mental-health-our-expert-weighs-in/">
+                                <h3>How can you improve your mental health</h3>
+                                <p>By Ishita Pateria</p>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="opt" style="background-image: url(../Pics/blogs/blog2.png); background-size: cover;">
+                        <div class="textt">
+                            <a href="https://scoonews.com/news/mind-matters-the-importance-of-mental-health-for-students-and-teachers-in-schools/">
+                                <h3>The Importance of Mental Health for Students</h3>
+                                <p>By Team ScooNews</p>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="opt" style="background-image: url(../Pics/blogs/blog3.png); background-size: cover;">
+                        <div class="textt">
+                            <a href="https://www.indiatvnews.com/health/world-mental-health-day-2023-know-why-support-system-is-crucial-for-mental-health-2023-10-10-897137">
+                                <h3>Know why support system is crucial for mental health</h3>
+                                <p>By Kristina Das</p>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="opt" style="background-image: url(../Pics/blogs/blog4.png); background-size: cover;">
+                        <div class="textt">
+                            <a href="https://www.hindustantimes.com/opinion/mind-matters-why-we-celebrate-mental-health-awareness-week-101684211914775.html">
+                                <h3>Why We Celebrate Mental Health Awareness Week</h3>
+                                <p>By Bhupinder Sandhu</p>
+                            </a>
+                            
+                        </div>
+                    </div>
+                   
+                </div>
+
+            </div>
+
+
+            <div class="song">
+                <div class="m1">
+                    <div class="ttext">
+                        <div class="para">
+                            <h2>Down the River</h2>
+                            <h6>Stress track | 10-15 mins</h6>
+                        </div>
+                        
+                    </div>
+                    <div class="opts">
+                        <img src="../Pics/Group.svg" alt="" id="playButton">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="category">
+                <div class="text">Videos recommended for you</div>
+                <div class="options">
+
+                    <div class="opt" style="background-image: url(../Pics/blogs/video1.png); background-size: cover;">
+                        <div class="textt">
+                            <a href="https://youtu.be/DxIDKZHW3-E">
+                                <h3>We All Have Mental Health</h3>
+                                <p>By Anna Freud</p>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="opt" style="background-image: url(../Pics/blogs/video2.png); background-size: cover;">
+                        <div class="textt">
+                            <a href="https://youtu.be/1qq7lDL-bzY">
+                                <h3>Why students should have mental health days</h3>
+                                <p>By TED</p>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="opt" style="background-image: url(../Pics/blogs/video3.png); background-size: cover;">
+                        <div class="textt">
+                            <a href="https://youtu.be/tJsGGsPNakw">
+                                <h3>Are you okay? | Award-Winning Short Film</h3>
+                                <p>By Fight Child Abuse</p>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="opt" style="background-image: url(../Pics/blogs/video4.png); background-size: cover;">
+                        <div class="textt">
+                            <a href="https://youtu.be/rkZl2gsLUp4">
+                                <h3>How to manage your mental health | Leon Taylor</h3>
+                                <p>By TED</p>
+                            </a>
+                            
+                        </div>
+                    </div>
+                   
+                </div>
+
+            </div>
+
+           
+        </div>
+    </div>
+    <div class="music">
+        <div class="progress-container">
+            <div id="progressBar"></div>
+        </div>
+        <div class="mtext">
+            <h2 id="playerTitle">Down the River</h2>
+            <h6 id="playerArtist">By: Painting with Passion</h6>
+        </div>
+        <div class="control">
+            <img src="../Pics/bbutton.svg" alt="">
+            <img src="../Pics/play.svg" alt="" class="image">
+            <img src="../Pics/fbutton.svg" alt="">
+        </div>
+        <div class="time-display">
+            <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+        </div>
+    </div>
+
+    <audio id="audioPlayer">
+        <source src="../Games/Breathing Game/music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+   
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const playButton = document.getElementById('playButton');
+    const audioPlayer = document.getElementById('audioPlayer');
+    const playIcon = document.querySelector('.control img.image');
+    const progressBar = document.getElementById('progressBar');
+    const currentTimeSpan = document.getElementById('currentTime');
+    const durationSpan = document.getElementById('duration');
+
+    function togglePlay() {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            playIcon.src = "../Pics/pause.svg";
+        } else {
+            audioPlayer.pause();
+            playIcon.src = "../Pics/play.svg";
+        }
+    }
+
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = Math.floor(seconds % 60);
+        return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+    }
+
+    playButton.addEventListener('click', togglePlay);
+    playIcon.addEventListener('click', togglePlay);
+
+    audioPlayer.addEventListener('loadedmetadata', function() {
+        durationSpan.textContent = formatTime(audioPlayer.duration);
+    });
+
+    audioPlayer.addEventListener('timeupdate', function() {
+        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        progressBar.style.width = `${progress}%`;
+        currentTimeSpan.textContent = formatTime(audioPlayer.currentTime);
+    });
+
+    document.querySelector('.progress-container').addEventListener('click', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const clickedValue = (x / this.offsetWidth) * audioPlayer.duration;
+        audioPlayer.currentTime = clickedValue;
+    });
+
+    // Add functionality for back and forward buttons
+    document.querySelector('.control img[src="../Pics/bbutton.svg"]').addEventListener('click', function() {
+        audioPlayer.currentTime = Math.max(audioPlayer.currentTime - 10, 0);
+    });
+
+    document.querySelector('.control img[src="../Pics/fbutton.svg"]').addEventListener('click', function() {
+        audioPlayer.currentTime = Math.min(audioPlayer.currentTime + 10, audioPlayer.duration);
+    });
+});
+    </script>
+</body>
+</html>
+

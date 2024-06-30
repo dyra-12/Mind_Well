@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Record | MindWell</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div id="drawer" class="drawer">
+        <div id="drawerContent" class="drawer-content">
+            
+        </div>
+    </div>
+    <div class="backg">
+        <div class="headg">
+            <div class="arrow">
+                <a href="../HomePage/home.html"><img src="../Pics/Arrow.svg" alt="Arrow Icon" class="arrow-icon1"></a>
+
+            </div>
+            
+            <div class="title">
+                <h1>Mood Tracking</h1>
+            </div>
+        </div>
+        <div class="bodyg">
+            <div class="left">
+                <div class="graph">
+                    <canvas id="myChart" height="300"></canvas>
+                </div>
+            </div>
+            <div class="rright">
+                <div class="rtitle">Last Activity</div>
+                <div class="record">
+                    <div class="rselect">
+
+                    </div>
+                </div>
+                <div class="rbutt">
+                    <div class="rbutton">
+                        <img src="../Pics/plus.svg" alt="" onclick="visit()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const username = localStorage.getItem('username');
+        console.log('Username:', username);
+
+        document.addEventListener('DOMContentLoaded', async () => {
+
+
+            try {
+                const response = await fetch(`http://localhost:3000/api/getMoods/${username}`);
+                const data = await response.json();
+
+                if (response.ok) {
+                    const xValues = data.map((_, index) => `Day ${index}`);
+                    const yValues = data.map((mood) => mood.emojiId);
+
+                    const canvas = document.getElementById('myChart');
+                    const ctx = canvas.getContext('2d');
+
+                    const myChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: xValues,
+                            datasets: [{
+                                label: 'Mood Data',
+                                data: yValues,
+                                backgroundColor: '#EDFBFF',
+                                borderColor: '#25C8FE',
+                                borderWidth: 3,
+                                pointRadius: 0,
+                                fill: true,
+                                tension: 0.5,
+                                showLine: true,
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                x: {
+                                    type: 'category',
+                                    labels: xValues,
+                                    display: true,
+                                    grid: {
+                                        display: false,
+                                    },
+                                },
+                                y: {
+                                    min: 0,
+                                    max: Math.max(...yValues) + 1, // Adjust the y-axis max value
+                                    display: false,
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    display: false,
+                                },
+                                grid: {
+                                    display: false,
+                                },
+                            },
+                            elements: {
+                                line: {
+                                    background: 'linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(37,200,254,1) 57%)',
+                                    borderColor: '#25C8FE',
+                                    borderWidth: 3
+                                }
+                            }
+                        }
+                    });
+                } else {
+                    console.error('Error:', data.message);
+                }
+            } catch (error) {
+                console.error('Fetch error:', error.message);
+            }
+        });
+
+
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            //const username = 'Dyra112'; // Replace with the desired username
+            const selectContainer = document.querySelector('.rselect'); // Assuming you have a div with class 'rselect'
+
+            try {
+                const response = await fetch(`http://localhost:3000/api/getMoods/${username}`);
+                const data = await response.json();
+
+                if (response.ok) {
+                    data.forEach((mood, index) => {
+                        const selectDiv = document.createElement('div');
+                        selectDiv.classList.add('select');
+
+                        const dateElement = document.createElement('div');
+                        dateElement.textContent = `${mood.field1}`;
+                        selectDiv.addEventListener('click', () => storeMoodDetails(mood));
+
+                        const emojiElement = document.createElement('img');
+                        emojiElement.src = `../Assets/Emojis/${mood.emojiId}.png`;
+
+                        selectDiv.appendChild(dateElement);
+                        selectDiv.appendChild(emojiElement);
+
+                        selectContainer.appendChild(selectDiv);
+                    });
+                } else {
+                    console.error('Error:', data.message);
+                }
+            } catch (error) {
+                console.error('Fetch error:', error.message);
+            }
+
+            function storeMoodDetails(mood) {
+                localStorage.setItem('selectedMood', JSON.stringify(mood));
+                window.location.href = 'view.html';
+            }
+        });
+
+        function visit(){
+            window.location.href = './mood.html';
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>

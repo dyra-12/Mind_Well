@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <style>
+        .drawer {
+            position: fixed;
+            top: 0;
+            left: -250px;
+
+            width: 250px;
+            height: 100%;
+            background-color: #41CFED;
+            padding-top: 10%;
+            transition: 0.5s;
+
+
+        }
+
+        .content {
+            transition: margin-left 0.5s;
+
+        }
+
+        .back-arrow {
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            display: none;
+        }
+
+        button {
+            background-color: #0092BB;
+            border: none;
+            color: white;
+            font-family: 'AlegrayaB', sans-serif;
+            font-size: 2vmin;
+            border-radius: 2vmin;
+            cursor: pointer;
+            margin-bottom: 5%;
+            width: 90%;
+            margin-left: 5%;
+            height: 80%;
+
+        }
+
+        .log {
+            background-color: #FF4D6B;
+        }
+    </style>
+    <title>Home | MindWell</title>
+</head>
+
+<body>
+
+    <div class="nav">
+
+        <div class="left">
+            <img src="" alt="" onclick="openDrawer()" id="avatarImage">
+        </div>
+        <div class="right">
+            <div class="optt">
+                <div class="roptt"><a href='../HomePage/home.html'>Home</a></div>
+                <div class="roptt"><a href='../Games/game.html'>Games</a></div>
+                <div class="roptt"><a href='../Quiz/quiz.html'>Quizzes</a></div>
+                <div class="roptt"><a href='../MoodTracking/record.html'>Mood Track</a></div>
+                <div class="roptt"><a href='../Library/index.html'>Library</a></div>
+                <div class="roptt"><a href=''>Connect</a></div>
+            </div>
+            <div class="btn">
+                <button><a href='../Emergency/index.html'>Emergency</a></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Drawer content -->
+    <div class="drawer">
+
+        <span class="back-arrow" onclick="closeDrawer()">⬅</span>
+        <div class="avatar" style="height: 30%; width: 100%;
+        display: flex; align-items: center;justify-content: center;"><img src="" alt=""
+                style="height: 70%; border-radius: 50%;" id="avatarImage1">
+
+        </div>
+        <div class="text" style="text-align: center; margin-bottom: 10%;">
+            <h2 id="displayName">Sarina Smith</h2>
+            <h4 id="user">@sarina12</h4>
+        </div>
+        <div class="btns" style="height: 30%; width: 100%; display: inline-grid;">
+            <button>Change Name</button>
+            <button>Change profile pic</button>
+            <button class="log">LOG OUT</button>
+        </div>
+
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+        <div class="bgg">
+            <div class="circle">
+                <div class="ctext">
+                    <h2 id="username"> Welcome back  <span id="nameS"> Sarina!</span></h2>
+                </div>
+                <div class="arrow" onclick="nextSlide()">➔</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const username = localStorage.getItem('username');
+        console.log('Username:', username);
+
+
+
+        function openDrawer() {
+            document.querySelector('.drawer').style.left = '0';
+            document.querySelector('.content').style.marginLeft = '250px';
+            document.querySelectorAll('.back-arrow').forEach(arrow => arrow.style.display = 'block');
+        }
+
+        function closeDrawer() {
+            document.querySelector('.drawer').style.left = '-250px';
+            document.querySelector('.content').style.marginLeft = '0';
+            document.querySelectorAll('.back-arrow').forEach(arrow => arrow.style.display = 'none');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const fetchAvatarId = async () => {
+                try {
+                    document.getElementById("user").textContent = `@${username}`;
+                    const response = await fetch(`http://localhost:3001/api/getAvatar/${username}`);
+                    const data = await response.json();
+                    console.log(`AvatarId for ${username}:`, data.avatarId);
+                    document.querySelector('#avatarImage').src = `../Assets/avatar/pic${data.avatarId}.jpg`;
+                    document.querySelector('#avatarImage1').src = `../Assets/avatar/pic${data.avatarId}.jpg`;
+                } catch (error) {
+                    console.error('Error fetching avatarId:', error);
+                }
+            };
+
+            fetchAvatarId();
+        });
+
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            //const usernameToFetch = 'dyra112'; // replace this line with your actual username variable
+
+            // Fetch the name associated with the username
+            fetch('http://localhost:4255/api/getName', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username: username }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(`Name for ${username}:`, data.name);
+                    
+                    localStorage.setItem('name', data.name);
+
+                    document.getElementById('displayName').innerText = data.name;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+
+        const name = localStorage.getItem('name');
+        document.getElementById('nameS').textContent = name;
+
+        var textArray = [`Welcome back ${name}!`, "Too bored ? Enjoy our wide range of games designed especially for you", "Stressed out after work? Try medidating for 5 mins with us using our meditaion game", "Chat with our AI therapist absolutely free "];
+
+        var currentIndex = 0;
+
+        function updateText() {
+            document.getElementById("username").textContent = textArray[currentIndex];
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % textArray.length;
+            updateText();
+        }
+
+        setInterval(nextSlide, 5000);
+
+    </script>
+
+</body>
+
+</html>

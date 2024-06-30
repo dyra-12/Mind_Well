@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> LOGIN | MindWell </title> 
+    <link rel="stylesheet" href="register.css">
+   </head>
+<body>
+  <div class="wrapper">
+    <h2>Hey There!</h2>
+    <h2 style="margin-top: 10px;">Welcome Back</h2>
+    <form action="#">
+
+      <div class="input-box">
+        <input type="text" id="username" name="username"  placeholder="Enter your username" required>
+      </div>
+
+      <div class="input-box">
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+
+      <div class="input-boxx" style="margin-top: 40px;">
+        <div id="successMessage"
+                style="color: blue; font-size: 2vmin; margin-bottom:4%; text-align: center; display: none;">
+                Login Successful</div>
+        <button type="button" onclick="login()">LOGIN</button>
+      </div>
+      <div class="text">
+        <h3>Don't have an account? <a href="./register.html">Sign Up now</a></h3>
+        <h3 style="margin-top: 40px;">----------------------------------------   OR    -------------------------------------------</h3>
+        <div class="icons">
+            <div class="icon"><img src="../Assets/Icons/facebook-round-color-icon.svg" alt=""></div>
+            <div class="icon"><img src="../Assets/Icons/x-social-media-round-icon.svg" alt=""></div>
+            <div class="icon"><img src="../Assets/Icons/google-color-icon.svg" alt=""></div>
+        </div>
+      </div>
+      
+    </form>
+  </div>
+
+  <script>
+    async function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+  
+      try {
+        const response = await fetch('http://localhost:4255/api/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, password }),
+        });
+  
+        const data = await response.json();
+        
+        if (response.ok) {
+          localStorage.setItem('username', username);
+
+          document.getElementById('successMessage').style.display = 'block';
+          setTimeout(() => {
+            window.location.href = '../HomePage/home.html';
+          },1000);
+          
+        } else {
+          alert(data.message);
+        }
+      } catch (error) {
+        console.error('Error during login:', error);
+      }
+    }
+  </script>
+  
+  
+  
+</body>
+</html>

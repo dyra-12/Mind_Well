@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wrapper {
+            width: 700px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            font-size: 35px;
+            font-weight: 600;
+            color: #333;
+            font-family: 'AlegrayaEX';
+        }
+
+        .avatar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 50px;
+        }
+
+        .pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: grey;
+            cursor: pointer;
+            transition: border;
+        }
+
+        .pic img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: grey;
+            cursor: pointer;
+            transition: border;
+        }
+
+        .pic.selected {
+            border: 3px solid #1A9DC2;
+        }
+
+        .input-boxx {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .input-boxx button {
+            margin-top: 40px;
+            width: 250px;
+            border-radius: 30px;
+            position: relative;
+            background-color: #1A9DC2;
+            color: #fff;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            font-family: 'AlegrayaB', sans-serif;
+            height: 50px;
+            font-size: 2vh;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2>Choose An Avatar</h2>
+
+        <div class="avatar">
+            <div class="pic" id="1"><img src="../Assets/avatar/pic1.jpg" alt=""></div>
+            <div class="pic" id="2"><img src="../Assets/avatar/pic2.jpg" alt=""></div>
+            <div class="pic" id="3"><img src="../Assets/avatar/pic3.jpg" alt=""></div>
+            <div class="pic" id="4"><img src="../Assets/avatar/pic4.jpg" alt=""></div>
+            <div class="pic" id="5"><img src="../Assets/avatar/pic5.jpg" alt=""></div>
+            <div class="pic" id="6"><img src="../Assets/avatar/pic6.jpg" alt=""></div>
+            <div class="pic" id="7"><img src="../Assets/avatar/pic7.jpg" alt=""></div>
+            <div class="pic" id="8"><img src="../Assets/avatar/pic8.jpg" alt=""></div>
+        </div>
+
+        <div class="input-boxx">
+            <div id="successMessage"
+                style="color: blue; font-size: 2vmin; margin-top:4%; text-align: center; display: none;">
+                Avatar successfully updated</div>
+            <button type="button" onclick="updateAvatar()">NEXT</button>
+
+        </div>
+    </div>
+
+    <script>
+        var selectedAvatarId;
+        const username = localStorage.getItem('username');
+        console.log('Username:', username);
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var pics = document.querySelectorAll('.pic');
+
+
+            pics.forEach(function (pic) {
+                pic.addEventListener('click', function () {
+                    pics.forEach(function (p) {
+                        p.classList.remove('selected');
+                    });
+
+                    pic.classList.add('selected');
+                    selectedAvatarId = pic.id;
+                });
+            });
+        });
+
+        function updateAvatar() {
+            if (selectedAvatarId) {
+                //const username = 'dyra112'; 
+                fetch('http://localhost:3001/api/updateAvatar', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, avatarId: selectedAvatarId }),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.message);
+
+                        
+                        document.getElementById('successMessage').style.display = 'block';
+                            setTimeout(() => {
+                                // Redirect to home.html
+                                window.location.href = '../HomePage/home.html';
+                            }, 2000);
+                        
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+
+
+            } else {
+                console.error('Please select an avatar.');
+            }
+        }
+    </script>
+</body>
+
+</html>

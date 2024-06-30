@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>ADHD Quiz</title>
+</head>
+
+<body>
+    <div id="instructionsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Instructions</h2>
+            <p>Answer the following questions based on how you have felt or behaved over the past six months. Click 'Next' to proceed to the next question. After answering all questions, click 'Submit' to see your results.</p>
+            
+        </div>
+    </div>
+    <div class="bg">
+        <div class="quiz-container">
+            
+            <form id="quiz-form">
+                <div class="question" id="q1">
+                    <div class="txt">
+                        <h1>1. How often do you have trouble wrapping up the final details of a project once the challenging parts have been done?</h1>
+                    </div>
+                    
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+        
+                <div class="question" id="q2">
+                    <h2>2. How often do you have difficulty getting things in order when you have to do a task that requires organization?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+
+                <div class="question" id="q3">
+                    <h2>3. How often do you have problems remembering appointments or obligations?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+
+                <div class="question" id="q4">
+                    <h2>4. When you have a task that requires a lot of thought, how often do you avoid or delay getting started?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+
+                <div class="question" id="q5">
+                    <h2>5. How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+
+                <div class="question" id="q6">
+                    <h2>6. How often do you feel overly active and compelled to do things, like you were driven by a motor?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+
+                <div class="question" id="q7">
+                    <h2>7. How often do you make careless mistakes when you have to work on a boring or difficult project?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+
+                <div class="question" id="q8">
+                    <h2>8. How often do you have difficulty keeping your attention when you are doing boring or repetitive work?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+
+                <div class="question" id="q9">
+                    <h2>9. How often do you have difficulty focusing on what people say to you, even when they are speaking to you directly?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+
+                <div class="question" id="q10">
+                    <h2>10. How often do you leave your seat in meetings or other situations in which you are expected to remain seated?</h2>
+                    <button type="button" value="0">Not at all</button>
+                    <button type="button" value="1">Occasionally</button>
+                    <button type="button" value="2">Frequently</button>
+                    <button type="button" value="3">Constantly</button>
+                </div>
+        
+                
+        
+                <button type="button" id="nextBtn">Next</button>
+                <button type="button" id="submitBtn" class="hidden">Submit</button>
+            </form>
+        
+            <div id="result-container" class="hidden">
+                <h2>QUIZ COMPLETED !!</h2>
+                <img src="../../img.gif" alt="">
+                <div class="sc" style="display: flex; justify-content: center;align-items: center;">
+                    <p id="score">Hello</p>
+                </div>
+                
+                <p id="inter">Hello</p>
+            </div>
+        </div>
+    </div>    
+    
+        <script src="index.js"></script>
+    </body>
+
+</html>

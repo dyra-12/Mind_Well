@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Emergency | MindWell</title>
+    <style>
+       
+    </style>
+</head>
+
+<body>
+    <div class="bg">
+        <div class="side">
+            <div class="button">
+                <img src="../Pics/Arrow.svg" alt="" onclick="visit()">
+            </div>
+            <div class="text">
+                <div class="tt">
+                    <h1>It’s okay not to be okay. </h1>
+                    <p>No matter how bad you are feeling, there are always people who want to help you...</p>
+                </div>
+            </div>
+            <div class="calls">
+                <div class="call">
+                    <div class="btn" onclick="copyToClipboard('9820466726')">24x7 Suicide Helpline</div>
+                    <div class="btn" onclick="copyToClipboard('9880396331')">Sa-Mudra Yuva Helpline</div>
+                    <div class="btn" onclick="copyToClipboard('8376804102')">Fortis Stress Helpline</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="modalText"></p>
+        </div>
+    </div>
+    <script>
+        function visit() {
+            window.location.href = '../HomePage/home.html';
+        }
+
+        function copyToClipboard(number) {
+            const tempInput = document.createElement('input');
+            tempInput.value = number;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showModal(`Number ${number} copied to clipboard`);
+        }
+
+        function showModal(message) {
+            const modal = document.getElementById("myModal");
+            const modalText = document.getElementById("modalText");
+            modalText.textContent = message;
+            modal.style.display = "flex";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

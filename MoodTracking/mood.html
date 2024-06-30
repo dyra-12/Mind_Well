@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Mood Entry | MindWell</title>
+</head>
+
+<body>
+    <div class="background">
+        <div class="left">
+            <div class="content">
+                <img src="../Pics/Arrow.svg" alt="Arrow Icon" class="arrow-icon" onclick="visit()">
+                <h2>How Do You Feel?</h2>
+                <div class="input-group">
+                    <input type="text" class="input-field" placeholder="Enter date and day">
+                    <input type="text"  class="input-field1" placeholder="Write down your feelings in here....">
+                </div>
+                <div class="btn">
+                    <button class="submit-button">Submit</button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="right">
+            <div class="icons">
+                <div class="icon" id="0">
+                    <img src="../Assets/Emojis/depressed.png" alt="">
+                    <div class="text">
+                        <p>Depressed</p>
+                    </div>
+                    
+                </div>
+                <div class="icon" id="1">
+                    <img src="../Assets/Emojis/stressed.png" alt="">
+                    <div class="text">
+                        <p>Stressed</p>
+                    </div>
+                    
+                </div>
+                <div class="icon" id="2">
+                    <img src="../Assets/Emojis/sad.png" alt="">
+                    <div class="text">
+                        <p>Sad</p>
+                    </div>
+                    
+                </div>
+                <div class="icon" id="3">
+                    <img src="../Assets/Emojis/calm.png" alt="">
+                    <div class="text">
+                        <p>Calm</p>
+                    </div>
+                    
+                </div>
+                <div class="icon" id="4">
+                    <img src="../Assets/Emojis/happy.png" alt="">
+                    <div class="text">
+                        <p>Happy</p>
+                    </div>
+                    
+                </div>
+
+
+            </div>
+
+            <div class="gif">
+                <img src="" alt="">
+            </div>
+        </div>
+    </div>
+    <script src="index.js" defer></script>
+    <script>
+        const username = localStorage.getItem('username');
+        console.log('Username:', username);
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const icons = document.querySelectorAll('.icon');
+            const gif = document.querySelector('.gif img');
+            let activeIcon = null;
+
+            function handleIconClick(event) {
+                const iconId = event.currentTarget.id;
+                const gifPath = `../Assets/Emojis/${getEmotionById(iconId)}.gif`;
+                gif.src = gifPath;
+
+                if (activeIcon) {
+                    activeIcon.classList.remove('active');
+                }
+
+                event.currentTarget.classList.add('active');
+                activeIcon = event.currentTarget;
+            }
+
+            function getEmotionById(id) {
+                const emotions = ['depressed', 'stressed', 'sad', 'calm', 'happy'];
+                return emotions[id];
+            }
+
+            icons.forEach(icon => {
+                icon.addEventListener('click', handleIconClick);
+            });
+
+            // Handle form submission
+            const submitButton = document.querySelector('.submit-button');
+            submitButton.addEventListener('click', async function () {
+                const field1Value = document.querySelector('.input-field').value;
+                const field2Value = document.querySelector('.input-field1').value;
+
+                // Find the index of the active icon
+                const emojiId = Array.from(icons).indexOf(activeIcon);
+
+                // Check if an icon is selected
+                if (emojiId === -1) {
+                    alert('Please select an emotion icon before submitting.');
+                    return;
+                }
+
+                // Prepare data for submission
+                const data = {
+                    field1: field1Value,
+                    field2: field2Value,
+                    emojiId: emojiId,
+                    username: username,
+                    
+                };
+
+                // Send a POST request to the server
+                const response = await fetch('http://localhost:3000/api/submitMood', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                // Check if the submission was successful
+                if (response.ok) {
+                    alert('Submission successful!');
+                } else {
+                    alert('Submission failed. Please try again.');
+                }
+            });
+        });
+
+        function visit(){
+            window.location.href = './record.html';
+        }
+    </script>
+</body>
+
+</html>

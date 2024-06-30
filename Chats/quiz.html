@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="quiz.css">
+    <title>Connect | MindWell</title>
+</head>
+
+<body>
+    <div class="icon">
+        <img src="../Pics/Arrow.svg" alt="" onclick="back()">
+    </div>
+    <div class="title">Connect</div>
+    <div id="background-slider">
+        <div class="bg">
+            <div class="left">
+                <div class="section" onclick="visit()">
+                    <div class="icon"><img src="../Assets/Icons/meditation.png" alt=""></div>
+                    <div class="head">AI Therapist</div>
+                    <div class="subhead">
+                        <p> Let’s open up to the  thing that matters amoung the people . </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mid">
+                <div class="section" style="background-color: #FFDBA7;" onclick="visit1()">
+                    <div class="text">
+                        <div class="head">Peer Group Meetup</div>
+                        <div class="subhead">
+                            <p> Let's delve into the matters that truly resonate among people. </p>
+                        </div>
+                    </div>
+
+                    <div class="icon"><img src="../Assets/Icons/brain.png" alt=""></div>
+                </div>
+                <div class="section" style="background-color: #FFCFDD;" onclick="visit2()">
+                    <div class="text">
+                        <div class="head">Meditaion</div>
+                        <div class="subhead">
+                            <p> Opening up to the matters that hold significance among people is crucial </p>
+                        </div>
+                    </div>
+
+                    <div class="icon"><img src="../Assets/Icons/word.png" alt=""></div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="mid">
+                <div class="section" style="background-color: #E1E2FF;" onclick="visit3()">
+                    <div class="text">
+                        <div class="head">PTSD: Every Wed</div>
+                        <div class="subhead">
+                            <p> Let's explore the things that genuinely matter to people. </p>
+                        </div>
+                    </div>
+
+                    <div class="icon"><img src="../Assets/Icons/paint.webp" alt=""></div>
+                </div>
+                <div class="section" style="background-color: #B5EFFF;" onclick="visit4()">
+                    <div class="text">
+                        <div class="head">Peer Group Meetup</div>
+                        <div class="subhead">
+                            <p> Delving into what truly matters among people is important. </p>
+                        </div>
+                    </div>
+                    <div class="icon"><img src="../Assets/Icons/tictactoe.png" alt=""></div>
+                </div>
+            </div>
+            <div class="right">
+                <img src="../Pics/farrow.svg" alt="">
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        function back() {
+            window.location.href = '../HomePage/home.html';
+        }
+        function visit() {
+            window.location.href = './Breathing Game/index.html';
+        }
+
+        function visit1() {
+            window.location.href = './memoryGame/index.html';
+        }
+
+        function visit2() {
+            window.location.href = './Hangman Game/index.html';
+        }
+
+        function visit3() {
+            window.location.href = './Paint-App-main/canvas.html';
+        }
+
+        function visit4() {
+            window.location.href = './tic tac toe/index.html';
+        }
+    </script>
+</body>
+
+</html>

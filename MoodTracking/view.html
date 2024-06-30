@@ -1,0 +1,53 @@
+<!-- view.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>View</title>
+</head>
+
+<body>
+    <div class="background">
+        <div class="left">
+            <div class="content">
+            <a href="./record.html"><img src="../Pics/Arrow.svg" alt="Arrow Icon" class="arrow-icon"></a>
+                <h2 id="field1Text">How Do You Feel?</h2>
+                <h5 id="field2Text" >Hello</h5>
+                
+                
+            </div>
+        </div>
+        <div class="right">
+            <div class="gif">
+                <!-- Depressed gif or other content based on mood -->
+                <img id="emojiImg" src="" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Retrieve mood details from localStorage
+        const storedMood = JSON.parse(localStorage.getItem('selectedMood')) || {};
+        const field1 = storedMood.field1 || 'No field1 provided';
+        const field2 = storedMood.field2 || 'No field2 provided';
+        const emojiId = storedMood.emojiId;
+
+        // Display the data in the view page
+        document.getElementById('field1Text').textContent = field1;
+        document.getElementById('field2Text').textContent = field2;
+
+        // Set the emoji image source based on emojiId
+        const emojiImg = document.getElementById('emojiImg');
+        emojiImg.src = `../Assets/Emojis/GIF/${emojiId}.gif` || '../default-emoji.png'; // Provide a default image path if emojiId is not provided
+
+        // Clear the stored mood details from localStorage
+        localStorage.removeItem('selectedMood');
+    </script>
+</body>
+
+</html>

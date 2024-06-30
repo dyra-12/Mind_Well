@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'LuckyGuy';
+    src: url('../Assets/Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Nexus';
+    src: url('../Assets/Fonts/nexa-rust.sans-black.otf');
+}
+
+@font-face {
+    font-family: 'AlegrayaEX';
+    src: url('../Assets/Fonts/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf');
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #8AD6E6;
+}
+
+.land{
+    position: absolute;
+}
+
+
+.background img{
+    height: 100vh;
+    width: 180vh;
+}
+
+.text{
+    height: 20vh;
+    width: 20vh;
+}
+
+.text h2{
+    left: 112vh;
+    top: 35%;
+    position: absolute;
+    font-family: 'Nexus', sans-serif;
+    color: white;
+    font-size: 5vh;
+}
+
+.text h1{
+    left: 100vh;
+    top: 45%;
+    position: absolute;
+    font-family: 'LuckyGuy', sans-serif;
+    color: #3E3B6A;
+    font-size: 10vh;
+    letter-spacing: 2px;
+}
+
+.help {
+    left: 140vh;
+    top: 60%;
+    position: absolute;
+    height: 70px;
+    width: 250px;
+    font-family: 'AlegrayaEX', sans-serif;
+    font-size: 20px;
+    background-color: #FF4D6B;
+    border: none; /* Remove the border */
+    border-radius: 10px; /* Add border-radius */
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:visited{
+    text-decoration: none;
+    color: white;
+}
+
+

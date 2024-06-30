@@ -1,0 +1,124 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  #signupContainer {
+    
+    width: 500px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: left;
+  }
+  
+  h1 {
+    font-size: 45px;
+    color: #0092BB;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 30px;
+    color: #0092BB;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    background-color: #0092BB;
+    color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #0092BB;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0077A8;
+  }
+  
+  .input-container {
+    position: relative;
+    margin-bottom: 15px;
+  }
+  
+  .icon-container {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .icon-container img {
+    height: 20px; /* Adjust the height of the icon as needed */
+  }
+  
+  /* Additional styling for placeholder text */
+  input::placeholder {
+    color: #999;
+  }
+
+  .input-container {
+    position: relative;
+    margin-bottom: 15px;
+  }
+  
+  .icon-container {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .icon-container img {
+    height: 20px; /* Adjust the height of the icon as needed */
+  }
+  
+  /* Additional styling for placeholder text */
+  input::placeholder {
+    color: #999;
+  }
+  
+  input {
+    width: 220px;
+    height: 50px;
+    padding: 10px; /* Adjust padding as needed */
+    border: none;
+    border-radius: 20px;
+    background-color: #0092BB;
+    color: #fff;
+    box-sizing: border-box;
+  }
+  
+  /* Adjust button styles if necessary */
+  button {
+    background-color: #0092BB;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0077A8;
+  }
